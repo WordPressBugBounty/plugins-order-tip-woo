@@ -1,7 +1,13 @@
 == Changelog ==
 
+= 1.5.1 =
+*Released 2 February 2025*
+
+* Added new option to select the type of session you would like to use for tip storage. On certain hosting platforms, such as Dreamhost, the usage of the PHPSESSID session, destroys the page cache and therefore, the shop should use WooCommerce only session, while on other hosters, you can use the PHP session as well.
+* Other small fixes and compatibility checks
+
 = 1.5.0 = 
-*Released soon*
+*Released 26 October 2024*
 
 * Replaced WOO_Order_Tip_Admin_Reports_Views admin class and WOO_Order_Tip_Main_Views front end class with functional components
 * Reports have been reengineered. In order to sustain big amounts of data, the reports are being displayed recursively, 100 at a time when filters are applied
