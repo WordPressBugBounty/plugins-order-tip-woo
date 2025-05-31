@@ -92,6 +92,11 @@ CSS classes and IDs that allow customization:
 
 == Changelog ==
 
+= 1.5.4 =
+*Released 31 May 2025*
+
+* Based on v1.5.3, the persistent admin notification was not removed. v1.5.4 removes it
+
 = 1.5.3 =
 *Released 24 May 2025*
 
