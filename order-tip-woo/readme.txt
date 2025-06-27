@@ -2,7 +2,7 @@
 Contributors: railmedia
 Tags: Woocommerce, Ecommerce, Order, Tip, Donation
 Requires at least: 3.0
-Stable tag: 1.5.3
+Stable tag: 1.5.5
 Tested up to: 6.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -91,6 +91,13 @@ CSS classes and IDs that allow customization:
 6. Backend Order displaying tip
 
 == Changelog ==
+
+= 1.5.5 =
+*Released 13 June 2025*
+
+* Security patch - server side validation of the tip to be applied. Patch is applied to all previous versions.
+* Fix - for websites using Woo Subscriptions, the recurring tip was displayed only if the custom tip field was enabled.
+* Improvement - only display the recurring checkbox if the cart contains any subscription products
 
 = 1.5.4 =
 *Released 31 May 2025*
