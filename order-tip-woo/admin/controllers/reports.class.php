@@ -207,7 +207,7 @@ class WOO_Order_Tip_Admin_Reports {
     **/
     function display_orders_list_reports_ajax() {
 
-        check_ajax_referer( 'reps-' . date('Y-m-d H'), 'security' );
+        check_ajax_referer( 'reps-' . wp_date('Y-m-d H'), 'security' );
 
         $after_date  = isset( $_POST['from'] ) ? sanitize_text_field( wp_unslash( $_POST['from'] ) ) : '';
         $before_date = isset( $_POST['to'] ) ? sanitize_text_field( wp_unslash( $_POST['to'] ) ) : '';
@@ -405,7 +405,7 @@ class WOO_Order_Tip_Admin_Reports {
     **/
     function export_tips_to_csv_ajax() {
 
-        check_ajax_referer( 'export-report-to-csv-' . date('Y-m-d H'), 'security' );
+        check_ajax_referer( 'export-report-to-csv-' . wp_date('Y-m-d H'), 'security' );
         
         global $wp_filesystem;
 
@@ -474,7 +474,7 @@ class WOO_Order_Tip_Admin_Reports {
     **/
     function delete_exported_csv_file_ajax() {
 
-        check_ajax_referer( 'delete-exported-file-' . date('Y-m-d H'), 'security' );
+        check_ajax_referer( 'delete-exported-file-' . wp_date('Y-m-d H'), 'security' );
 
         global $wp_filesystem;
 
@@ -523,7 +523,7 @@ class WOO_Order_Tip_Admin_Reports {
 
         if(
             $wootip_export_nonce
-            && wp_verify_nonce( $wootip_export_nonce, 'export-report-to-csv-' . date('Y-m-d H') )
+            && wp_verify_nonce( $wootip_export_nonce, 'export-report-to-csv-' . wp_date('Y-m-d H') )
             && is_user_logged_in() && current_user_can( 'manage_woocommerce' ) 
             && $page && ( 'wc-reports' === $page || 'wc-settings' === $page )
             && $tab && 'order_tip' === $tab

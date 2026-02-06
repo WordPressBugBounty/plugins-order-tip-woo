@@ -2,8 +2,8 @@
 Contributors: railmedia
 Tags: Woocommerce, Ecommerce, Order, Tip, Donation
 Requires at least: 3.0
-Stable tag: 1.5.5
-Tested up to: 6.7
+Stable tag: 1.5.6
+Tested up to: 6.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,8 +92,14 @@ CSS classes and IDs that allow customization:
 
 == Changelog ==
 
+= 1.5.6 =
+*Released 02 January 2026*
+
+* Fixed tip not being added on cart and checkout page when users are logged-out
+* Added aria-label attributes to all tip form elements
+
 = 1.5.5 =
-*Released 13 June 2025*
+*Released 27 June 2025*
 
 * Security patch - server side validation of the tip to be applied. Patch is applied to all previous versions.
 * Fix - for websites using Woo Subscriptions, the recurring tip was displayed only if the custom tip field was enabled.

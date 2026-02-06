@@ -46,7 +46,20 @@ do_action( 'before_order_tip_form' );
                 $active_class = $tip_rate == $active_tip['tip'] && $active_tip['tip_custom'] == '0' ? 'active' : '';
             }
     ?>
-    <button id="woo_order_tip_<?php echo esc_attr( $tip_rate ); ?>" type="button" class="woo_order_tip <?php echo isset( $active_class ) ? esc_attr( $active_class ) : ''; ?>" data-tip="<?php echo esc_attr( $tip_rate ); ?>" data-tip-type="<?php echo esc_attr( $settings['wc_order_tip_type'] ); ?>" data-tip-custom="0" data-tip-cash="0">
+    <button 
+        id="woo_order_tip_<?php echo esc_attr( $tip_rate ); ?>" 
+        type="button" 
+        class="woo_order_tip <?php echo isset( $active_class ) ? esc_attr( $active_class ) : ''; ?>" 
+        data-tip="<?php echo esc_attr( $tip_rate ); ?>" 
+        data-tip-type="<?php echo esc_attr( $settings['wc_order_tip_type'] ); ?>" 
+        data-tip-custom="0" 
+        data-tip-cash="0"
+        aria-label="<?php 
+            /* translators: 1: Add tip with value aria label; */
+            echo esc_attr( sprintf( esc_html__( 'Add %s tip', 'order-tip-woo' ), $tip_label ) ); 
+        ?>"
+    >
+
         <?php echo esc_html( $tip_label ); ?>
         <?php if( $has_tip_label_suffix && $tip_label_suffix ) { ?>
         <span class="tip-label-suffix">
@@ -58,11 +71,24 @@ do_action( 'before_order_tip_form' );
     <?php
         if( $settings['wc_order_tip_cash'] ) {
             if( $active_tip ) {
-                $active_class =  $active_tip['tip_custom'] == '0' && $active_tip['tip_cash'] == '1' ? 'active' : '';
+                $active_class = $active_tip['tip_custom'] == '0' && $active_tip['tip_cash'] == '1' ? 'active' : '';
             }
+            $cash_label = apply_filters( 'wc_order_tip_cash_label', $settings['wc_order_tip_cash_label'] );
     ?>
-    <button id="woo_order_tip_cash" type="button" class="woo_order_tip <?php echo esc_attr( $active_class ); ?>" data-tip="0" data-tip-type="2" data-tip-custom="0"  data-tip-cash="1">
-        <?php echo wp_kses_post( apply_filters( 'wc_order_tip_cash_label', $settings['wc_order_tip_cash_label'] ) ); ?>
+    <button 
+        id="woo_order_tip_cash" 
+        type="button" 
+        class="woo_order_tip <?php echo esc_attr( $active_class ); ?>" 
+        data-tip="0" 
+        data-tip-type="2" 
+        data-tip-custom="0" 
+        data-tip-cash="1"
+        aria-label="<?php 
+            /* translators: 1: Add tip with value aria label; */
+            echo esc_attr( sprintf( esc_html__( 'Add %s tip', 'order-tip-woo' ), wp_kses_post( $cash_label ) ) ); 
+        ?>"
+    >
+        <?php echo wp_kses_post( $cash_label ); ?>
     </button>
     <?php } ?>
     <?php
@@ -72,17 +98,30 @@ do_action( 'before_order_tip_form' );
             $active_tip_amount = isset( $active_tip['tip'] ) && $active_tip['tip'] ? str_replace( ',', $ds, str_replace( '.', $ds, $active_tip['tip'] ) ) : '';
             $custom_tip_suffix = isset( $active_tip['tip_custom'] ) && $active_tip['tip_custom'] == 1 ? ' (' . get_woocommerce_currency_symbol() . $active_tip_amount . ')' : '';
             $active_class      = isset( $active_tip['tip_custom'] ) && $active_tip['tip_custom'] == 1 ? 'active' : '';
+            $custom_tip_label  = apply_filters( 'wc_order_tip_custom_label', $settings['wc_order_tip_custom_label'] );
     ?>
-    <button id="woo_order_tip_custom" type="button" class="woo_order_tip <?php echo esc_attr( $active_class ); ?>" data-tip="custom" data-tip-type="2" data-tip-custom="1" data-tip-cash="0">
-        <?php echo wp_kses_post( apply_filters( 'wc_order_tip_custom_label', $settings['wc_order_tip_custom_label'] ) ); ?><?php echo esc_html( $custom_tip_suffix ); ?>
+    <button 
+        id="woo_order_tip_custom" 
+        type="button" 
+        class="woo_order_tip <?php echo esc_attr( $active_class ); ?>" 
+        data-tip="custom" 
+        data-tip-type="2" 
+        data-tip-custom="1" 
+        data-tip-cash="0"
+        aria-label="<?php echo wp_kses_post( $custom_tip_label ); ?>"
+    >
+        <?php echo wp_kses_post( $custom_tip_label ); ?>
     </button>
     <p class="form-row woo_order_tip_custom_text_field" style="display:none;">
+        <label for="woo_order_tip_custom_text">
+            <?php echo wp_kses_post( apply_filters( 'wc_order_tip_custom_enter_tip_placeholder', $settings['wc_order_tip_enter_placeholder'] ) ); ?>
+        </label>
         <input  
             type="text" 
+            id="woo_order_tip_custom_text"
             class="input-text woo_order_tip_custom_text" 
             data-tip-type="<?php echo esc_attr( $settings['wc_order_tip_type'] ); ?>" 
             data-currency="<?php echo esc_attr( get_woocommerce_currency_symbol() ); ?>" 
-            placeholder="<?php echo wp_kses_post( apply_filters( 'wc_order_tip_custom_enter_tip_placeholder', $settings['wc_order_tip_enter_placeholder'] ) ); ?>" 
             value="<?php echo esc_attr( $custom_cash_val ); ?>"
         />
     </p>
@@ -101,7 +140,22 @@ do_action( 'before_order_tip_form' );
         <input id="woo_recurring_tip" type="checkbox" <?php checked( $recurring_tip, true ); ?> /> <label for="woo_recurring_tip"><?php esc_html_e( 'Recurring tip', 'order-tip-woo' ); ?></label>
     </p>
     <?php } ?>
-    <button class="woo_order_tip_apply" type="button" name="woo_order_tip_apply" style="display:none;"><?php echo esc_html( $settings['wc_order_tip_custom_apply_label'] ); ?><span></span></button>
-    <button class="woo_order_tip_remove" type="button" style="<?php echo ! $active_tip ? 'display:none;' : ''; ?>"><?php echo esc_html( $settings['wc_order_tip_custom_remove_label'] ); ?></button>
+    <button 
+        class="woo_order_tip_apply" 
+        type="button" 
+        name="woo_order_tip_apply" 
+        style="display:none;"
+        aria-label="<?php echo esc_attr( $settings['wc_order_tip_custom_apply_label'] ); ?>"
+    >
+        <?php echo esc_html( $settings['wc_order_tip_custom_apply_label'] ); ?><span></span>
+    </button>
+    <button 
+        class="woo_order_tip_remove" 
+        type="button" 
+        style="<?php echo ! $active_tip ? 'display:none;' : ''; ?>"
+        aria-label="<?php echo esc_attr( $settings['wc_order_tip_custom_remove_label'] ); ?>"
+    >
+        <?php echo esc_html( $settings['wc_order_tip_custom_remove_label'] ); ?>
+    </button>
 </div>
 <?php do_action( 'after_order_tip_form' ); ?>

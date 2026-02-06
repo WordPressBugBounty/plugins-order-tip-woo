@@ -1,6 +1,6 @@
 <?php
 /**
-* @package cloudWEB VidaXL Dropshipping
+* @package Order Tip for WooCommerce
 * @author  Adrian Emil Tudorache
 * @license GPL-2.0+
 * @link    https://www.tudorache.me/

@@ -147,8 +147,9 @@ class WOO_Order_Tip_Main {
         }
 
         $wc_session = WC()->session;
-        $sess_customer = $wc_session->get('customer');
-        if( $sess_customer ) {
+        if( $wc_session ) {
+            $sess_customer = $wc_session->get('customer');
+            $sess_customer = is_array( $sess_customer ) ? $sess_customer : array();
             $sess_customer['tip'] = $tip;
             $wc_session->set( 'tip', $tip );
         }
