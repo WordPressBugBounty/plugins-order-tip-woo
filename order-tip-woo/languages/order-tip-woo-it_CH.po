@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woo Order Tip\n"
-"POT-Creation-Date: 2025-02-02 18:53+0100\n"
-"PO-Revision-Date: 2025-02-02 18:54+0100\n"
+"POT-Creation-Date: 2026-08-12 11:06+0200\n"
+"PO-Revision-Date: 2026-08-12 11:11+0200\n"
 "Last-Translator: Adrian Emil Tudorache <adrian@railmedia.es>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -10,96 +10,70 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;__;_e;esc_html;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: admin/controllers/config.class.php:58
+#: admin/controllers/config.class.php:59
 #: admin/controllers/settings.class.php:63
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: admin/controllers/config.class.php:59
+#: admin/controllers/config.class.php:60
 #: admin/controllers/settings.class.php:64
 msgid "Tip Reports"
 msgstr "Rapporti mancia"
 
-#: admin/controllers/notices.class.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s plugin, "
-#| "please navigate to the plugin's %s, review the settings and save before "
-#| "proceeding."
-msgid ""
-"To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
-"plugin, please navigate to the plugin's %3$s, review the settings and save "
-"before proceeding."
-msgstr ""
-"Per garantire la compatibilità del plugin %sOrder Tip for WooCommerce%s, si "
-"prega di navigare a la %s del plugin, rivedere le impostazioni e salvare "
-"prima di procedere."
-
-#: admin/controllers/notices.class.php:42
-msgid "settings page"
-msgstr "pagina delle impostazioni"
-
-#: admin/controllers/reports.class.php:137
-#: admin/controllers/reports.class.php:140
+#: admin/controllers/reports.class.php:135
+#: admin/controllers/reports.class.php:138
 #, fuzzy
 #| msgid "Order Tip"
 msgid "Order Tips"
 msgstr "Mancia per l'ordine"
 
-#: admin/controllers/reports.class.php:198
+#: admin/controllers/reports.class.php:196
 msgid "There are no orders with tips in the database just yet"
 msgstr "Non ci sono ordini con suggerimenti nel database"
 
-#: admin/controllers/reports.class.php:265
-#: admin/controllers/reports.class.php:308
+#: admin/controllers/reports.class.php:278
+#: admin/controllers/reports.class.php:321
 msgid "There are no orders with tips based on your date range."
 msgstr "Non ci sono ordini con suggerimenti basati sul tuo intervallo di date."
 
-#: admin/controllers/reports.class.php:404
-msgid "Failed to initialize the export requisites."
-msgstr "Impossibile inizializzare i requisiti di esportazione."
+#: admin/controllers/reports.class.php:412
+msgid "You do not have permission to perform this action."
+msgstr "Non disponi dei permessi necessari per eseguire questa azione."
 
-#: admin/controllers/reports.class.php:417
-msgid "Failed to create the uploads directory. Please check the permissions."
-msgstr "Impossibile creare la directory uploads. Controllare i permessi."
+#: admin/controllers/reports.class.php:424
+msgid "No data to export. Please select a date range and try again."
+msgstr "Nessun dato da esportare. Seleziona un intervallo di date e riprova."
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:549
+#: admin/controllers/reports.class.php:431
+#, fuzzy
+#| msgid "There are no orders with tips based on your date range."
+msgid "Too many records. Please narrow your date range."
+msgstr "Non ci sono ordini con suggerimenti basati sul tuo intervallo di date."
+
+#: admin/controllers/reports.class.php:436
 #: admin/views/reports-orders-list.php:142
 msgid "Order ID"
 msgstr "ID Ordine"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:550
+#: admin/controllers/reports.class.php:436
 #, fuzzy
 #| msgid "Tip fee name"
 msgid "Tip name"
 msgstr "Nome della mancia"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:551
+#: admin/controllers/reports.class.php:436
 msgid "Tip value"
 msgstr "Valore della mancia"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:552
+#: admin/controllers/reports.class.php:436
 msgid "Order date"
 msgstr "Data ordine"
-
-#: admin/controllers/reports.class.php:607
-#: admin/views/reports-orders-list.php:190
-msgid "Total"
-msgstr "Totale"
-
-#: admin/controllers/reports.class.php:608
-msgid "Currency"
-msgstr "Valuta"
 
 #: admin/controllers/settings.class.php:35
 msgid "Order Tip"
@@ -357,11 +331,11 @@ msgstr ""
 
 #: admin/controllers/settings.class.php:288
 msgid "Default tip"
-msgstr ""
+msgstr "Mance predefinite"
 
 #: admin/controllers/settings.class.php:294
 msgid "Use default tip"
-msgstr ""
+msgstr "Usa mance predefinite"
 
 #: admin/controllers/settings.class.php:301
 msgid ""
@@ -369,10 +343,14 @@ msgid ""
 "automatically be added when an item is added to the cart. The user will have "
 "the option to change the tip or remove it."
 msgstr ""
+"Abilita/disabilita l'uso delle mance predefinite. Ciò significa che la "
+"mancia verrà aggiunta automaticamente quando un articolo viene aggiunto al "
+"carrello. L'utente avrà la possibilità di modificare la mancia o di "
+"rimuoverla."
 
 #: admin/controllers/settings.class.php:305
 msgid "Default tip type"
-msgstr ""
+msgstr "Tipo di mancia predefinita"
 
 #: admin/controllers/settings.class.php:312
 #, fuzzy
@@ -388,7 +366,7 @@ msgstr "Valore della mancia"
 
 #: admin/controllers/settings.class.php:318
 msgid "The value of the default tip"
-msgstr ""
+msgstr "Il valore della mancia predefinita"
 
 #: admin/controllers/settings.class.php:336
 #, fuzzy
@@ -725,9 +703,62 @@ msgstr "Valore"
 msgid "Date/Time"
 msgstr "Data/Ora"
 
-#: frontend/views/tip-form.php:85
+#: admin/views/reports-orders-list.php:190
+msgid "Total"
+msgstr "Totale"
+
+#: frontend/controllers/config.class.php:49
+#, php-format
+msgid "Wait %1$s %2$s before changing the tip..."
+msgstr "Attendere %1$s %2$s prima di modificare la mancia..."
+
+#: frontend/controllers/config.class.php:51
+msgid "second"
+msgstr "secondo"
+
+#: frontend/controllers/config.class.php:53
+msgid "seconds"
+msgstr "secondi"
+
+#: frontend/controllers/main.class.php:262
+msgid "Too many requests. Please wait a moment."
+msgstr "Troppe richieste. Attendere qualche istante."
+
+#: frontend/views/tip-form.php:59 frontend/views/tip-form.php:88
+#, php-format
+msgid "Add %s tip"
+msgstr "Aggiungi una mancia di %s"
+
+#: frontend/views/tip-form.php:140
 msgid "Recurring tip"
 msgstr "Mancia ricorrente"
+
+#, fuzzy, php-format
+#~| msgid ""
+#~| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s "
+#~| "plugin, please navigate to the plugin's %s, review the settings and save "
+#~| "before proceeding."
+#~ msgid ""
+#~ "To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
+#~ "plugin, please navigate to the plugin's %3$s, review the settings and "
+#~ "save before proceeding."
+#~ msgstr ""
+#~ "Per garantire la compatibilità del plugin %sOrder Tip for WooCommerce%s, "
+#~ "si prega di navigare a la %s del plugin, rivedere le impostazioni e "
+#~ "salvare prima di procedere."
+
+#~ msgid "settings page"
+#~ msgstr "pagina delle impostazioni"
+
+#~ msgid "Failed to initialize the export requisites."
+#~ msgstr "Impossibile inizializzare i requisiti di esportazione."
+
+#~ msgid ""
+#~ "Failed to create the uploads directory. Please check the permissions."
+#~ msgstr "Impossibile creare la directory uploads. Controllare i permessi."
+
+#~ msgid "Currency"
+#~ msgstr "Valuta"
 
 #~ msgid "Updated to 1.1"
 #~ msgstr "Aggiornato alla 1.1"

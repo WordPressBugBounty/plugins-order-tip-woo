@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Woo Order Tip\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-02 18:54+0100\n"
-"PO-Revision-Date: 2025-02-02 18:55+0100\n"
+"POT-Creation-Date: 2026-08-12 11:12+0200\n"
+"PO-Revision-Date: 2026-08-12 11:13+0200\n"
 "Last-Translator: Adrian Emil Tudorache <adrian@railmedia.es>\n"
 "Language-Team: Nederlands\n"
 "Language: nl_NL\n"
@@ -11,93 +11,69 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;__;_e;esc_html;esc_html__;esc_html_e\n"
 "X-Loco-Version: 2.4.4; wp-5.5.3\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: admin/controllers/config.class.php:58
+#: admin/controllers/config.class.php:59
 #: admin/controllers/settings.class.php:63
 msgid "Settings"
 msgstr "Instellingen"
 
-#: admin/controllers/config.class.php:59
+#: admin/controllers/config.class.php:60
 #: admin/controllers/settings.class.php:64
 msgid "Tip Reports"
 msgstr "Tip Rapporten"
 
-#: admin/controllers/notices.class.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s plugin, "
-#| "please navigate to the plugin's %s, review the settings and save before "
-#| "proceeding."
-msgid ""
-"To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
-"plugin, please navigate to the plugin's %3$s, review the settings and save "
-"before proceeding."
-msgstr ""
-"Om volledige compatibiliteit van de %sOrder-tip voor WooCommerce%s-plug-in "
-"te garanderen, navigeer je naar de %s van de plugin, bekijk je de "
-"instellingen en sla je op voordat je verdergaat."
-
-#: admin/controllers/notices.class.php:42
-msgid "settings page"
-msgstr "instellingenpagina"
-
-#: admin/controllers/reports.class.php:137
-#: admin/controllers/reports.class.php:140
+#: admin/controllers/reports.class.php:135
+#: admin/controllers/reports.class.php:138
 msgid "Order Tips"
 msgstr "Fooien"
 
-#: admin/controllers/reports.class.php:198
+#: admin/controllers/reports.class.php:196
 msgid "There are no orders with tips in the database just yet"
 msgstr "Er zijn nog geen bestellingen met fooien in de database"
 
-#: admin/controllers/reports.class.php:265
-#: admin/controllers/reports.class.php:308
+#: admin/controllers/reports.class.php:278
+#: admin/controllers/reports.class.php:321
 msgid "There are no orders with tips based on your date range."
 msgstr "Er zijn geen bestellingen met fooien op basis van uw datumbereik."
 
-#: admin/controllers/reports.class.php:404
-msgid "Failed to initialize the export requisites."
-msgstr "Initialiseren van de exportvereisten is mislukt."
+#: admin/controllers/reports.class.php:412
+msgid "You do not have permission to perform this action."
+msgstr "Je hebt geen toestemming om deze actie uit te voeren."
 
-#: admin/controllers/reports.class.php:417
-msgid "Failed to create the uploads directory. Please check the permissions."
-msgstr "Uploads-directory is mislukt. Controleer de rechten."
+#: admin/controllers/reports.class.php:424
+msgid "No data to export. Please select a date range and try again."
+msgstr ""
+"Er zijn geen gegevens om te exporteren. Selecteer een datumbereik en probeer "
+"het opnieuw."
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:549
+#: admin/controllers/reports.class.php:431
+#, fuzzy
+#| msgid "There are no orders with tips based on your date range."
+msgid "Too many records. Please narrow your date range."
+msgstr "Er zijn geen bestellingen met fooien op basis van uw datumbereik."
+
+#: admin/controllers/reports.class.php:436
 #: admin/views/reports-orders-list.php:142
 msgid "Order ID"
 msgstr "Bestelnummer"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:550
+#: admin/controllers/reports.class.php:436
 msgid "Tip name"
 msgstr "Naam van fooi"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:551
+#: admin/controllers/reports.class.php:436
 msgid "Tip value"
 msgstr "Fooi waarde"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:552
+#: admin/controllers/reports.class.php:436
 msgid "Order date"
 msgstr "Besteldatum"
-
-#: admin/controllers/reports.class.php:607
-#: admin/views/reports-orders-list.php:190
-msgid "Total"
-msgstr "Totaal"
-
-#: admin/controllers/reports.class.php:608
-msgid "Currency"
-msgstr "Valuta"
 
 #: admin/controllers/settings.class.php:35
 msgid "Order Tip"
@@ -354,11 +330,11 @@ msgstr ""
 
 #: admin/controllers/settings.class.php:288
 msgid "Default tip"
-msgstr ""
+msgstr "Standaard fooi"
 
 #: admin/controllers/settings.class.php:294
 msgid "Use default tip"
-msgstr ""
+msgstr "Standaard fooi gebruiken"
 
 #: admin/controllers/settings.class.php:301
 msgid ""
@@ -366,10 +342,14 @@ msgid ""
 "automatically be added when an item is added to the cart. The user will have "
 "the option to change the tip or remove it."
 msgstr ""
+"Schakel het gebruik van de standaard fooi in of uit. Dit betekent dat de "
+"fooi automatisch wordt toegevoegd wanneer een artikel aan het winkelmandje "
+"wordt toegevoegd. De gebruiker heeft de mogelijkheid om de fooi aan te "
+"passen of te verwijderen."
 
 #: admin/controllers/settings.class.php:305
 msgid "Default tip type"
-msgstr ""
+msgstr "Standaard fooitype"
 
 #: admin/controllers/settings.class.php:312
 #, fuzzy
@@ -385,7 +365,7 @@ msgstr "Fooi waarde"
 
 #: admin/controllers/settings.class.php:318
 msgid "The value of the default tip"
-msgstr ""
+msgstr "De waarde van de standaard fooi"
 
 #: admin/controllers/settings.class.php:336
 #, fuzzy
@@ -718,9 +698,62 @@ msgstr "Waarde"
 msgid "Date/Time"
 msgstr "Datum/Uur"
 
-#: frontend/views/tip-form.php:85
+#: admin/views/reports-orders-list.php:190
+msgid "Total"
+msgstr "Totaal"
+
+#: frontend/controllers/config.class.php:49
+#, php-format
+msgid "Wait %1$s %2$s before changing the tip..."
+msgstr "Wacht %1$s %2$s voordat je de fooi wijzigt..."
+
+#: frontend/controllers/config.class.php:51
+msgid "second"
+msgstr "seconde"
+
+#: frontend/controllers/config.class.php:53
+msgid "seconds"
+msgstr "seconden"
+
+#: frontend/controllers/main.class.php:262
+msgid "Too many requests. Please wait a moment."
+msgstr "Te veel verzoeken. Even geduld a.u.b."
+
+#: frontend/views/tip-form.php:59 frontend/views/tip-form.php:88
+#, php-format
+msgid "Add %s tip"
+msgstr "Voeg %s fooi toe"
+
+#: frontend/views/tip-form.php:140
 msgid "Recurring tip"
 msgstr "Terugkerende fooi"
+
+#, fuzzy, php-format
+#~| msgid ""
+#~| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s "
+#~| "plugin, please navigate to the plugin's %s, review the settings and save "
+#~| "before proceeding."
+#~ msgid ""
+#~ "To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
+#~ "plugin, please navigate to the plugin's %3$s, review the settings and "
+#~ "save before proceeding."
+#~ msgstr ""
+#~ "Om volledige compatibiliteit van de %sOrder-tip voor WooCommerce%s-plug-"
+#~ "in te garanderen, navigeer je naar de %s van de plugin, bekijk je de "
+#~ "instellingen en sla je op voordat je verdergaat."
+
+#~ msgid "settings page"
+#~ msgstr "instellingenpagina"
+
+#~ msgid "Failed to initialize the export requisites."
+#~ msgstr "Initialiseren van de exportvereisten is mislukt."
+
+#~ msgid ""
+#~ "Failed to create the uploads directory. Please check the permissions."
+#~ msgstr "Uploads-directory is mislukt. Controleer de rechten."
+
+#~ msgid "Currency"
+#~ msgstr "Valuta"
 
 #~ msgid "Updated to 1.1"
 #~ msgstr "Bijgewerkt naar 1.1"

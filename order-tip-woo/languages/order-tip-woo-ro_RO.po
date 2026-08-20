@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woo Order Tip\n"
-"POT-Creation-Date: 2025-02-02 18:55+0100\n"
-"PO-Revision-Date: 2025-02-02 18:56+0100\n"
+"POT-Creation-Date: 2026-08-12 11:15+0200\n"
+"PO-Revision-Date: 2026-08-12 11:16+0200\n"
 "Last-Translator: Adrian Emil Tudorache <adrian@railmedia.es>\n"
 "Language-Team: \n"
 "Language: ro\n"
@@ -11,98 +11,72 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && "
 "n%100<=19) ? 1 : 2);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;__;_e;esc_html;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: admin/controllers/config.class.php:58
+#: admin/controllers/config.class.php:59
 #: admin/controllers/settings.class.php:63
 msgid "Settings"
 msgstr "Setări"
 
-#: admin/controllers/config.class.php:59
+#: admin/controllers/config.class.php:60
 #: admin/controllers/settings.class.php:64
 msgid "Tip Reports"
 msgstr "Rapoarte bacșiș"
 
-#: admin/controllers/notices.class.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s plugin, "
-#| "please navigate to the plugin's %s, review the settings and save before "
-#| "proceeding."
-msgid ""
-"To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
-"plugin, please navigate to the plugin's %3$s, review the settings and save "
-"before proceeding."
-msgstr ""
-"Pentru a asigura compatibilitatea completă a pluginului %sOrder Tip for "
-"WooCommerce%s, te rugăm să navighezi la %s a pluginului, să revizuiești "
-"setările și să le salvezi înainte de a continua."
-
-#: admin/controllers/notices.class.php:42
-msgid "settings page"
-msgstr "Pagina de setări"
-
-#: admin/controllers/reports.class.php:137
-#: admin/controllers/reports.class.php:140
+#: admin/controllers/reports.class.php:135
+#: admin/controllers/reports.class.php:138
 #, fuzzy
 #| msgid "Order Tip"
 msgid "Order Tips"
 msgstr "Bacșiș comandă"
 
-#: admin/controllers/reports.class.php:198
+#: admin/controllers/reports.class.php:196
 msgid "There are no orders with tips in the database just yet"
 msgstr "Încă nu există comenzi cu bacșișuri în baza de date"
 
-#: admin/controllers/reports.class.php:265
-#: admin/controllers/reports.class.php:308
+#: admin/controllers/reports.class.php:278
+#: admin/controllers/reports.class.php:321
 msgid "There are no orders with tips based on your date range."
 msgstr "Nu există comenzi cu bacșișuri pentru datele selectate."
 
-#: admin/controllers/reports.class.php:404
-msgid "Failed to initialize the export requisites."
-msgstr "Nu s-a reușit inițializarea cerințelor de export."
+#: admin/controllers/reports.class.php:412
+msgid "You do not have permission to perform this action."
+msgstr "Nu aveți permisiunea de a efectua această acțiune."
 
-#: admin/controllers/reports.class.php:417
-msgid "Failed to create the uploads directory. Please check the permissions."
+#: admin/controllers/reports.class.php:424
+msgid "No data to export. Please select a date range and try again."
 msgstr ""
-"Nu s-a reușit crearea directorului uploads. Te rugăm să verifici "
-"permisiunile."
+"Nu există date de exportat. Vă rugăm să selectați un interval de date și să "
+"încercați din nou."
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:549
+#: admin/controllers/reports.class.php:431
+#, fuzzy
+#| msgid "There are no orders with tips based on your date range."
+msgid "Too many records. Please narrow your date range."
+msgstr "Nu există comenzi cu bacșișuri pentru datele selectate."
+
+#: admin/controllers/reports.class.php:436
 #: admin/views/reports-orders-list.php:142
 msgid "Order ID"
 msgstr "ID comandă"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:550
+#: admin/controllers/reports.class.php:436
 #, fuzzy
 #| msgid "Tip fee name"
 msgid "Tip name"
 msgstr "Nume bacșiș"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:551
+#: admin/controllers/reports.class.php:436
 msgid "Tip value"
 msgstr "Valoare bacșiș"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:552
+#: admin/controllers/reports.class.php:436
 msgid "Order date"
 msgstr "Dată comandă"
-
-#: admin/controllers/reports.class.php:607
-#: admin/views/reports-orders-list.php:190
-msgid "Total"
-msgstr "Total"
-
-#: admin/controllers/reports.class.php:608
-msgid "Currency"
-msgstr "Monedă"
 
 #: admin/controllers/settings.class.php:35
 msgid "Order Tip"
@@ -358,11 +332,11 @@ msgstr ""
 
 #: admin/controllers/settings.class.php:288
 msgid "Default tip"
-msgstr ""
+msgstr "Bacșiș implicit"
 
 #: admin/controllers/settings.class.php:294
 msgid "Use default tip"
-msgstr ""
+msgstr "Utilizați bacșișul implicit"
 
 #: admin/controllers/settings.class.php:301
 msgid ""
@@ -370,10 +344,13 @@ msgid ""
 "automatically be added when an item is added to the cart. The user will have "
 "the option to change the tip or remove it."
 msgstr ""
+"Activați/dezactivați utilizarea bacșișului implicit. Aceasta înseamnă că "
+"bacșișul va fi adăugat automat atunci când un articol este adăugat în coș. "
+"Utilizatorul va avea opțiunea de a modifica bacșișul sau de a-l elimina."
 
 #: admin/controllers/settings.class.php:305
 msgid "Default tip type"
-msgstr ""
+msgstr "Tipul bacșișului implicit"
 
 #: admin/controllers/settings.class.php:312
 #, fuzzy
@@ -389,7 +366,7 @@ msgstr "Valoare bacșiș"
 
 #: admin/controllers/settings.class.php:318
 msgid "The value of the default tip"
-msgstr ""
+msgstr "Valoarea bacșișului implicit"
 
 #: admin/controllers/settings.class.php:336
 #, fuzzy
@@ -726,9 +703,64 @@ msgstr "Valoare"
 msgid "Date/Time"
 msgstr "Dată/Oră"
 
-#: frontend/views/tip-form.php:85
+#: admin/views/reports-orders-list.php:190
+msgid "Total"
+msgstr "Total"
+
+#: frontend/controllers/config.class.php:49
+#, php-format
+msgid "Wait %1$s %2$s before changing the tip..."
+msgstr "Așteptați %1$s %2$s înainte de a modifica bacșișul..."
+
+#: frontend/controllers/config.class.php:51
+msgid "second"
+msgstr "secundă"
+
+#: frontend/controllers/config.class.php:53
+msgid "seconds"
+msgstr "secunde"
+
+#: frontend/controllers/main.class.php:262
+msgid "Too many requests. Please wait a moment."
+msgstr "Prea multe solicitări. Vă rugăm să așteptați un moment."
+
+#: frontend/views/tip-form.php:59 frontend/views/tip-form.php:88
+#, php-format
+msgid "Add %s tip"
+msgstr "Adăugați bacșișul %s"
+
+#: frontend/views/tip-form.php:140
 msgid "Recurring tip"
 msgstr "Bacșiș recurent"
+
+#, fuzzy, php-format
+#~| msgid ""
+#~| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s "
+#~| "plugin, please navigate to the plugin's %s, review the settings and save "
+#~| "before proceeding."
+#~ msgid ""
+#~ "To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
+#~ "plugin, please navigate to the plugin's %3$s, review the settings and "
+#~ "save before proceeding."
+#~ msgstr ""
+#~ "Pentru a asigura compatibilitatea completă a pluginului %sOrder Tip for "
+#~ "WooCommerce%s, te rugăm să navighezi la %s a pluginului, să revizuiești "
+#~ "setările și să le salvezi înainte de a continua."
+
+#~ msgid "settings page"
+#~ msgstr "Pagina de setări"
+
+#~ msgid "Failed to initialize the export requisites."
+#~ msgstr "Nu s-a reușit inițializarea cerințelor de export."
+
+#~ msgid ""
+#~ "Failed to create the uploads directory. Please check the permissions."
+#~ msgstr ""
+#~ "Nu s-a reușit crearea directorului uploads. Te rugăm să verifici "
+#~ "permisiunile."
+
+#~ msgid "Currency"
+#~ msgstr "Monedă"
 
 #~ msgid "Updated to 1.1"
 #~ msgstr "Actualizat la 1.1"

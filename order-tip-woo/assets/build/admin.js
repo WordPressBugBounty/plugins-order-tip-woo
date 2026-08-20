@@ -1,0 +1,1 @@
+(()=>{"use strict";window.jQuery,jQuery,jQuery(function(){jQuery("#wc_order_tip_updated_1_1").length&&jQuery("#wc_order_tip_updated_1_1").parent().parent().hide()})})();

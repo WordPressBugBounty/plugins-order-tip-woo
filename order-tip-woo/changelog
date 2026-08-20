@@ -1,5 +1,34 @@
 == Changelog ==
 
+= 1.6.0 =
+*Released 17 August 2026*
+
+* Added ShipDay compatibility layer - tip amounts are now saved as order meta data for third-party integrations
+* Tip data is saved to multiple meta fields (_tip_amount, _customer_tip) for maximum compatibility
+* Added additional tip meta data (payment method, custom tip flag, tip type, original value, etc.)
+* HPOS (High-Performance Order Storage) compatibility improvements
+* Improved tip extraction from order fees for manually created admin orders
+* Added helper method to retrieve tip amount from orders programmatically
+* Refactored CSV export to use client-side blob generation, consolidating two AJAX calls into one and removing file system dependencies in an attempt to prevent security issues
+* Feature: changed old webpack JS/CSS assets to @wordpress/scripts to avoid JS security issues
+* Security: Fixed predictable nonces - replaced time-based action strings with static identifiers
+* Security: Added CSV injection prevention with sanitize_csv_field() method
+* Security: Implemented rate limiting on AJAX endpoints (3-second transient per user/IP)
+* Security: Added client-side rate limiting with countdown UX and localized messages
+* Security: Removed legacy CSV export functions (export_tips_to_csv, get_tips_csv_header, create_tips_csv_lines)
+* Security: Refactored CSV export to use client-side blob generation (no file system dependencies)
+
+= 1.5.7 =
+*Released 08 August 2026*
+
+* Security patch - Applied a fix to delete_exported_csv_file_ajax method in reports.class.php. Added a manage_woocommerce capability check, and the deletion path is now rebuilt from basename() of the request confined to the plugin's own upload directory. Removed admin intended methods from wp_ajax public calls
+* Applied various security patches such as:
+    * Safe unserialization of tip data;
+    * Prepare a custom database call;
+    * Export tips user permission check - only users with manage_woocommerce capability should be able to export the tips;
+    * CSV file name generated with less predictable name.
+* WordPress 7.0.2 and WooCommerce 10.9.4 compatibility check
+
 = 1.5.6 =
 *Released 02 January 2026*
 

@@ -110,7 +110,9 @@ class WOO_Order_Tip_Main {
 
         check_ajax_referer( 'apply_order_tip', 'security' );
 
-        $session_tip = WOO_Order_Tip_Service::should_use_php_session() ? ( isset( $_SESSION['tip'] ) && ! empty( $_SESSION['tip'] ) ? unserialize( sanitize_text_field( wp_unslash( $_SESSION['tip'] ) ) ) : array() ) : array();
+        $this->check_rate_limit( 'apply_tip' );
+
+        $session_tip = WOO_Order_Tip_Service::should_use_php_session() ? ( isset( $_SESSION['tip'] ) && ! empty( $_SESSION['tip'] ) ? json_decode( sanitize_text_field( wp_unslash( $_SESSION['tip'] ) ), true ) : array() ) : array();
 
         $wc_session = WC()->session;
         if( ! $session_tip ) {
@@ -143,7 +145,7 @@ class WOO_Order_Tip_Main {
         }
 
         if( WOO_Order_Tip_Service::should_use_php_session() ) {
-            $_SESSION['tip'] = serialize( $tip );
+            $_SESSION['tip'] = wp_json_encode( $tip );
         }
 
         $wc_session = WC()->session;
@@ -170,6 +172,8 @@ class WOO_Order_Tip_Main {
     function remove_tip_from_session() {
 
         check_ajax_referer( 'remove_order_tip', 'security' );
+
+        $this->check_rate_limit( 'remove_tip' );
 
         $wc_session = WC()->session;
         $wc_session->__unset( 'tip' );
@@ -235,7 +239,7 @@ class WOO_Order_Tip_Main {
 
             if( WOO_Order_Tip_Service::should_use_php_session() ) {
             
-                $session_tip = isset( $_SESSION ) && isset( $_SESSION['tip'] ) && ! empty( $_SESSION['tip'] ) ? unserialize( sanitize_text_field( wp_unslash( $_SESSION['tip'] ) ) ) : array();
+                $session_tip = isset( $_SESSION ) && isset( $_SESSION['tip'] ) && ! empty( $_SESSION['tip'] ) ? json_decode( sanitize_text_field( wp_unslash( $_SESSION['tip'] ) ), true ) : array();
 
                 if( $session_tip ) {
                     unset( $_SESSION['tip'] );
@@ -244,6 +248,23 @@ class WOO_Order_Tip_Main {
             }
 
         }
+
+    }
+
+    private function check_rate_limit( $action, $seconds = 3 ) {
+
+        $user_id = get_current_user_id();
+        $identifier = $user_id ? $user_id : sanitize_text_field( $_SERVER['REMOTE_ADDR'] ?? 'unknown' );
+        $transient_key = 'wootip_rate_' . $action . '_' . md5( $identifier );
+        
+        if ( get_transient( $transient_key ) ) {
+            wp_send_json_error( array(
+                'message' => esc_html__( 'Too many requests. Please wait a moment.', 'order-tip-woo' )
+            ) );
+            wp_die();
+        }
+        
+        set_transient( $transient_key, 1, $seconds );
 
     }
 

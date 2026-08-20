@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woo Order Tip\n"
-"POT-Creation-Date: 2025-02-02 18:52+0100\n"
-"PO-Revision-Date: 2025-02-02 18:53+0100\n"
+"POT-Creation-Date: 2026-08-12 11:04+0200\n"
+"PO-Revision-Date: 2026-08-12 11:06+0200\n"
 "Last-Translator: Adrian Emil Tudorache <adrian@railmedia.es>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -10,99 +10,75 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;__;_e;esc_html;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: admin/controllers/config.class.php:58
+#: admin/controllers/config.class.php:59
 #: admin/controllers/settings.class.php:63
 msgid "Settings"
 msgstr "Paramètres"
 
-#: admin/controllers/config.class.php:59
+#: admin/controllers/config.class.php:60
 #: admin/controllers/settings.class.php:64
 msgid "Tip Reports"
 msgstr "Rapports des pourboires"
 
-#: admin/controllers/notices.class.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s plugin, "
-#| "please navigate to the plugin's %s, review the settings and save before "
-#| "proceeding."
-msgid ""
-"To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
-"plugin, please navigate to the plugin's %3$s, review the settings and save "
-"before proceeding."
-msgstr ""
-"Pour assurer la compatibilité totale du plugin %sOrder Tip for "
-"WooCommerce%s, veuillez naviguer vers les %s du plugin, vérifier les "
-"paramètres et enregistrer avant de continuer."
-
-#: admin/controllers/notices.class.php:42
-msgid "settings page"
-msgstr "page de configuration"
-
-#: admin/controllers/reports.class.php:137
-#: admin/controllers/reports.class.php:140
+#: admin/controllers/reports.class.php:135
+#: admin/controllers/reports.class.php:138
 #, fuzzy
 #| msgid "Order Tip"
 msgid "Order Tips"
 msgstr "Pourboire commande"
 
-#: admin/controllers/reports.class.php:198
+#: admin/controllers/reports.class.php:196
 msgid "There are no orders with tips in the database just yet"
 msgstr ""
 "Il n'y a pas encore de commandes avec des pourboire dans la base de données"
 
-#: admin/controllers/reports.class.php:265
-#: admin/controllers/reports.class.php:308
+#: admin/controllers/reports.class.php:278
+#: admin/controllers/reports.class.php:321
 msgid "There are no orders with tips based on your date range."
 msgstr ""
 "Il n'y a pas de commandes avec des pourboire basés sur votre fourchette de "
 "dates."
 
-#: admin/controllers/reports.class.php:404
-msgid "Failed to initialize the export requisites."
-msgstr "Échec de l'initialisation des exigences d'exportation."
+#: admin/controllers/reports.class.php:412
+msgid "You do not have permission to perform this action."
+msgstr "Vous n'êtes pas autorisé(e) à effectuer cette action."
 
-#: admin/controllers/reports.class.php:417
-msgid "Failed to create the uploads directory. Please check the permissions."
+#: admin/controllers/reports.class.php:424
+msgid "No data to export. Please select a date range and try again."
 msgstr ""
-"Échec de la création du répertoire des téléchargements. Veuillez vérifier "
-"les permissions."
+"Aucune donnée à exporter. Veuillez sélectionner une plage de dates et "
+"réessayer."
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:549
+#: admin/controllers/reports.class.php:431
+#, fuzzy
+#| msgid "There are no orders with tips based on your date range."
+msgid "Too many records. Please narrow your date range."
+msgstr ""
+"Il n'y a pas de commandes avec des pourboire basés sur votre fourchette de "
+"dates."
+
+#: admin/controllers/reports.class.php:436
 #: admin/views/reports-orders-list.php:142
 msgid "Order ID"
 msgstr "ID commande"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:550
+#: admin/controllers/reports.class.php:436
 msgid "Tip name"
 msgstr "Nom du pourboir"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:551
+#: admin/controllers/reports.class.php:436
 msgid "Tip value"
 msgstr "Valeur du pourboire"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:552
+#: admin/controllers/reports.class.php:436
 msgid "Order date"
 msgstr "Date commande"
-
-#: admin/controllers/reports.class.php:607
-#: admin/views/reports-orders-list.php:190
-msgid "Total"
-msgstr "Total"
-
-#: admin/controllers/reports.class.php:608
-msgid "Currency"
-msgstr "Monnaie"
 
 #: admin/controllers/settings.class.php:35
 msgid "Order Tip"
@@ -361,11 +337,11 @@ msgstr ""
 
 #: admin/controllers/settings.class.php:288
 msgid "Default tip"
-msgstr ""
+msgstr "Pourboire par défaut"
 
 #: admin/controllers/settings.class.php:294
 msgid "Use default tip"
-msgstr ""
+msgstr "Utiliser le pourboire par défaut"
 
 #: admin/controllers/settings.class.php:301
 msgid ""
@@ -373,10 +349,14 @@ msgid ""
 "automatically be added when an item is added to the cart. The user will have "
 "the option to change the tip or remove it."
 msgstr ""
+"Activer/désactiver l'utilisation du pourboire par défaut. Cela signifie que "
+"le pourboire sera automatiquement ajouté lorsqu'un article est ajouté au "
+"panier. L'utilisateur aura la possibilité de modifier le pourboire ou de le "
+"supprimer."
 
 #: admin/controllers/settings.class.php:305
 msgid "Default tip type"
-msgstr ""
+msgstr "Type de pourboire par défaut"
 
 #: admin/controllers/settings.class.php:312
 #, fuzzy
@@ -392,7 +372,7 @@ msgstr "Valeur du pourboire"
 
 #: admin/controllers/settings.class.php:318
 msgid "The value of the default tip"
-msgstr ""
+msgstr "Valeur du pourboire par défaut"
 
 #: admin/controllers/settings.class.php:336
 #, fuzzy
@@ -727,9 +707,64 @@ msgstr "Valeur"
 msgid "Date/Time"
 msgstr "Date/Heure"
 
-#: frontend/views/tip-form.php:85
+#: admin/views/reports-orders-list.php:190
+msgid "Total"
+msgstr "Total"
+
+#: frontend/controllers/config.class.php:49
+#, php-format
+msgid "Wait %1$s %2$s before changing the tip..."
+msgstr "Attendez %1$s %2$s avant de modifier le pourboire..."
+
+#: frontend/controllers/config.class.php:51
+msgid "second"
+msgstr "seconde"
+
+#: frontend/controllers/config.class.php:53
+msgid "seconds"
+msgstr "secondes"
+
+#: frontend/controllers/main.class.php:262
+msgid "Too many requests. Please wait a moment."
+msgstr "Trop de requêtes. Veuillez patienter un instant."
+
+#: frontend/views/tip-form.php:59 frontend/views/tip-form.php:88
+#, php-format
+msgid "Add %s tip"
+msgstr "Ajouter un pourboire de %s"
+
+#: frontend/views/tip-form.php:140
 msgid "Recurring tip"
 msgstr "Pourboire récurrent"
+
+#, fuzzy, php-format
+#~| msgid ""
+#~| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s "
+#~| "plugin, please navigate to the plugin's %s, review the settings and save "
+#~| "before proceeding."
+#~ msgid ""
+#~ "To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
+#~ "plugin, please navigate to the plugin's %3$s, review the settings and "
+#~ "save before proceeding."
+#~ msgstr ""
+#~ "Pour assurer la compatibilité totale du plugin %sOrder Tip for "
+#~ "WooCommerce%s, veuillez naviguer vers les %s du plugin, vérifier les "
+#~ "paramètres et enregistrer avant de continuer."
+
+#~ msgid "settings page"
+#~ msgstr "page de configuration"
+
+#~ msgid "Failed to initialize the export requisites."
+#~ msgstr "Échec de l'initialisation des exigences d'exportation."
+
+#~ msgid ""
+#~ "Failed to create the uploads directory. Please check the permissions."
+#~ msgstr ""
+#~ "Échec de la création du répertoire des téléchargements. Veuillez vérifier "
+#~ "les permissions."
+
+#~ msgid "Currency"
+#~ msgstr "Monnaie"
 
 #~ msgid "Updated to 1.1"
 #~ msgstr "Mis à jour à 1.1"

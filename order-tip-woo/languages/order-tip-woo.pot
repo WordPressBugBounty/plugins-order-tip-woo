@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woo Order Tip\n"
-"POT-Creation-Date: 2025-02-02 18:50+0100\n"
+"POT-Creation-Date: 2026-08-12 10:58+0200\n"
 "PO-Revision-Date: 2020-08-08 13:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,61 +11,45 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;__;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: admin/controllers/config.class.php:58
+#: admin/controllers/config.class.php:59
 #: admin/controllers/settings.class.php:63
 msgid "Settings"
 msgstr ""
 
-#: admin/controllers/config.class.php:59
+#: admin/controllers/config.class.php:60
 #: admin/controllers/settings.class.php:64
 msgid "Tip Reports"
 msgstr ""
 
-#: admin/controllers/notices.class.php:39
-#, php-format
-msgid ""
-"To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
-"plugin, please navigate to the plugin's %3$s, review the settings and save "
-"before proceeding."
-msgstr ""
-
-#: admin/controllers/notices.class.php:42
-msgid "settings page"
-msgstr ""
-
-#: admin/controllers/reports.class.php:137
-#: admin/controllers/reports.class.php:140
+#: admin/controllers/reports.class.php:135
+#: admin/controllers/reports.class.php:138
 msgid "Order Tips"
 msgstr ""
 
-#: admin/controllers/reports.class.php:265
-#: admin/controllers/reports.class.php:308
+#: admin/controllers/reports.class.php:278
+#: admin/controllers/reports.class.php:321
 msgid "There are no orders with tips based on your date range."
 msgstr ""
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:549
+#: admin/controllers/reports.class.php:436
 msgid "Order ID"
 msgstr ""
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:550
+#: admin/controllers/reports.class.php:436
 msgid "Tip name"
 msgstr ""
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:551
+#: admin/controllers/reports.class.php:436
 msgid "Tip value"
 msgstr ""
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:552
+#: admin/controllers/reports.class.php:436
 msgid "Order date"
 msgstr ""
 

@@ -1,9 +1,9 @@
 === Order Tip for WooCommerce ===
 Contributors: railmedia
 Tags: Woocommerce, Ecommerce, Order, Tip, Donation
-Requires at least: 3.0
-Stable tag: 1.5.6
-Tested up to: 6.9
+Requires at least: 5.3
+Stable tag: 1.6.0
+Tested up to: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,24 @@ CSS classes and IDs that allow customization:
 6. Backend Order displaying tip
 
 == Changelog ==
+
+= 1.6.0 =
+*Released 17 August 2026*
+
+* Added ShipDay compatibility layer - tip amounts are now saved as order meta data for third-party integrations
+* Tip data is saved to multiple meta fields (_tip_amount, _customer_tip) for maximum compatibility
+* Added additional tip meta data (payment method, custom tip flag, tip type, original value, etc.)
+* HPOS (High-Performance Order Storage) compatibility improvements
+* Improved tip extraction from order fees for manually created admin orders
+* Added helper method to retrieve tip amount from orders programmatically
+* Refactored CSV export to use client-side blob generation, consolidating two AJAX calls into one and removing file system dependencies in an attempt to prevent security issues
+* Feature: changed old webpack JS/CSS assets to @wordpress/scripts to avoid JS security issues
+* Security: Fixed predictable nonces - replaced time-based action strings with static identifiers
+* Security: Added CSV injection prevention with sanitize_csv_field() method
+* Security: Implemented rate limiting on AJAX endpoints (3-second transient per user/IP)
+* Security: Added client-side rate limiting with countdown UX and localized messages
+* Security: Removed legacy CSV export functions (export_tips_to_csv, get_tips_csv_header, create_tips_csv_lines)
+* Security: Refactored CSV export to use client-side blob generation (no file system dependencies)
 
 = 1.5.6 =
 *Released 02 January 2026*

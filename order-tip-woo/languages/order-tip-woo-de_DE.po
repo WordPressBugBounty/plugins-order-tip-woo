@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woo Order Tip\n"
-"POT-Creation-Date: 2025-02-02 18:47+0100\n"
-"PO-Revision-Date: 2025-02-02 18:48+0100\n"
+"POT-Creation-Date: 2026-08-12 10:58+0200\n"
+"PO-Revision-Date: 2026-08-12 11:02+0200\n"
 "Last-Translator: Adrian Emil Tudorache <adrian@railmedia.es>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -10,97 +10,71 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;__;_e;esc_html;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: admin/controllers/config.class.php:58
+#: admin/controllers/config.class.php:59
 #: admin/controllers/settings.class.php:63
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: admin/controllers/config.class.php:59
+#: admin/controllers/config.class.php:60
 #: admin/controllers/settings.class.php:64
 msgid "Tip Reports"
 msgstr "Tipp-Berichte"
 
-#: admin/controllers/notices.class.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s plugin, "
-#| "please navigate to the plugin's %s, review the settings and save before "
-#| "proceeding."
-msgid ""
-"To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
-"plugin, please navigate to the plugin's %3$s, review the settings and save "
-"before proceeding."
-msgstr ""
-"Um die volle Kompatibilität des Plugins %sOrder Tip for WooCommerce%s "
-"sicherzustellen, navigieren Sie bitte zu den %s des Plugins, überprüfen Sie "
-"die Einstellungen und speichern Sie, bevor Sie fortfahren."
-
-#: admin/controllers/notices.class.php:42
-msgid "settings page"
-msgstr "Einstellungsseite"
-
-#: admin/controllers/reports.class.php:137
-#: admin/controllers/reports.class.php:140
+#: admin/controllers/reports.class.php:135
+#: admin/controllers/reports.class.php:138
 #, fuzzy
 #| msgid "Order Tip"
 msgid "Order Tips"
 msgstr "Bestellen Trinkgeld"
 
-#: admin/controllers/reports.class.php:198
+#: admin/controllers/reports.class.php:196
 msgid "There are no orders with tips in the database just yet"
 msgstr ""
 "Es befinden sich noch keine Bestellungen mit Trinkgeld in der Datenbank"
 
-#: admin/controllers/reports.class.php:265
-#: admin/controllers/reports.class.php:308
+#: admin/controllers/reports.class.php:278
+#: admin/controllers/reports.class.php:321
 msgid "There are no orders with tips based on your date range."
 msgstr "Es gibt keine Bestellungen mit Trinkgeld in Ihrem Datumsbereich."
 
-#: admin/controllers/reports.class.php:404
-msgid "Failed to initialize the export requisites."
-msgstr "Die Initialisierung der Exportanforderungen ist fehlgeschlagen."
+#: admin/controllers/reports.class.php:412
+msgid "You do not have permission to perform this action."
+msgstr "Sie haben keine Berechtigung, diese Aktion auszuführen."
 
-#: admin/controllers/reports.class.php:417
-msgid "Failed to create the uploads directory. Please check the permissions."
+#: admin/controllers/reports.class.php:424
+msgid "No data to export. Please select a date range and try again."
 msgstr ""
-"Das Verzeichnis uploads konnte nicht erstellt werden. Bitte überprüfen Sie "
-"die Berechtigungen."
+"Es sind keine Daten zum Exportieren vorhanden. Bitte wählen Sie einen "
+"Datumsbereich aus und versuchen Sie es erneut."
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:549
+#: admin/controllers/reports.class.php:431
+#, fuzzy
+#| msgid "There are no orders with tips based on your date range."
+msgid "Too many records. Please narrow your date range."
+msgstr "Es gibt keine Bestellungen mit Trinkgeld in Ihrem Datumsbereich."
+
+#: admin/controllers/reports.class.php:436
 #: admin/views/reports-orders-list.php:142
 msgid "Order ID"
 msgstr "ID"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:550
+#: admin/controllers/reports.class.php:436
 msgid "Tip name"
 msgstr "Trinkgeld Name"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:551
+#: admin/controllers/reports.class.php:436
 msgid "Tip value"
 msgstr "Trinkgeld Wert"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:552
+#: admin/controllers/reports.class.php:436
 msgid "Order date"
 msgstr "Datum"
-
-#: admin/controllers/reports.class.php:607
-#: admin/views/reports-orders-list.php:190
-msgid "Total"
-msgstr "Gesamt"
-
-#: admin/controllers/reports.class.php:608
-msgid "Currency"
-msgstr "Währung"
 
 #: admin/controllers/settings.class.php:35
 msgid "Order Tip"
@@ -357,11 +331,11 @@ msgstr ""
 
 #: admin/controllers/settings.class.php:288
 msgid "Default tip"
-msgstr ""
+msgstr "Standardtrinkgeld"
 
 #: admin/controllers/settings.class.php:294
 msgid "Use default tip"
-msgstr ""
+msgstr "Standardtrinkgeld verwenden"
 
 #: admin/controllers/settings.class.php:301
 msgid ""
@@ -369,10 +343,14 @@ msgid ""
 "automatically be added when an item is added to the cart. The user will have "
 "the option to change the tip or remove it."
 msgstr ""
+"Aktivieren/deaktivieren Sie die Verwendung des Standardtrinkgelds. Das "
+"bedeutet, dass das Trinkgeld automatisch hinzugefügt wird, wenn ein Artikel "
+"in den Warenkorb gelegt wird. Der Benutzer hat die Möglichkeit, das "
+"Trinkgeld zu ändern oder zu entfernen."
 
 #: admin/controllers/settings.class.php:305
 msgid "Default tip type"
-msgstr ""
+msgstr "Standardtrinkgeldtyp"
 
 #: admin/controllers/settings.class.php:312
 #, fuzzy
@@ -388,7 +366,7 @@ msgstr "Trinkgeld Wert"
 
 #: admin/controllers/settings.class.php:318
 msgid "The value of the default tip"
-msgstr ""
+msgstr "Der Wert des Standardtrinkgelds"
 
 #: admin/controllers/settings.class.php:336
 #, fuzzy
@@ -729,9 +707,64 @@ msgstr "Wert"
 msgid "Date/Time"
 msgstr "Datum/Zeit"
 
-#: frontend/views/tip-form.php:85
+#: admin/views/reports-orders-list.php:190
+msgid "Total"
+msgstr "Gesamt"
+
+#: frontend/controllers/config.class.php:49
+#, php-format
+msgid "Wait %1$s %2$s before changing the tip..."
+msgstr "Warten Sie %1$s %2$s, bevor Sie das Trinkgeld ändern..."
+
+#: frontend/controllers/config.class.php:51
+msgid "second"
+msgstr "Sekunde"
+
+#: frontend/controllers/config.class.php:53
+msgid "seconds"
+msgstr "Sekunden"
+
+#: frontend/controllers/main.class.php:262
+msgid "Too many requests. Please wait a moment."
+msgstr "Zu viele Anfragen. Bitte warten Sie einen Moment."
+
+#: frontend/views/tip-form.php:59 frontend/views/tip-form.php:88
+#, php-format
+msgid "Add %s tip"
+msgstr "%s Trinkgeld hinzufügen"
+
+#: frontend/views/tip-form.php:140
 msgid "Recurring tip"
 msgstr "Wiederkehrender Trinkgeld"
+
+#, fuzzy, php-format
+#~| msgid ""
+#~| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s "
+#~| "plugin, please navigate to the plugin's %s, review the settings and save "
+#~| "before proceeding."
+#~ msgid ""
+#~ "To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
+#~ "plugin, please navigate to the plugin's %3$s, review the settings and "
+#~ "save before proceeding."
+#~ msgstr ""
+#~ "Um die volle Kompatibilität des Plugins %sOrder Tip for WooCommerce%s "
+#~ "sicherzustellen, navigieren Sie bitte zu den %s des Plugins, überprüfen "
+#~ "Sie die Einstellungen und speichern Sie, bevor Sie fortfahren."
+
+#~ msgid "settings page"
+#~ msgstr "Einstellungsseite"
+
+#~ msgid "Failed to initialize the export requisites."
+#~ msgstr "Die Initialisierung der Exportanforderungen ist fehlgeschlagen."
+
+#~ msgid ""
+#~ "Failed to create the uploads directory. Please check the permissions."
+#~ msgstr ""
+#~ "Das Verzeichnis uploads konnte nicht erstellt werden. Bitte überprüfen "
+#~ "Sie die Berechtigungen."
+
+#~ msgid "Currency"
+#~ msgstr "Währung"
 
 #~ msgid "Updated to 1.1"
 #~ msgstr "Aktualisiert zu 1.1"

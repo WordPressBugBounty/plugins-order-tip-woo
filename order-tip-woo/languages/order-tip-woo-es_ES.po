@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woo Order Tip\n"
-"POT-Creation-Date: 2025-02-02 18:50+0100\n"
-"PO-Revision-Date: 2025-02-02 18:51+0100\n"
+"POT-Creation-Date: 2026-08-12 11:03+0200\n"
+"PO-Revision-Date: 2026-08-12 11:04+0200\n"
 "Last-Translator: Adrian Emil Tudorache <adrian@railmedia.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -10,94 +10,68 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;__;_e;esc_html;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: admin/controllers/config.class.php:58
+#: admin/controllers/config.class.php:59
 #: admin/controllers/settings.class.php:63
 msgid "Settings"
 msgstr "Ajustes"
 
-#: admin/controllers/config.class.php:59
+#: admin/controllers/config.class.php:60
 #: admin/controllers/settings.class.php:64
 msgid "Tip Reports"
 msgstr "Informes propinas"
 
-#: admin/controllers/notices.class.php:39
-#, fuzzy, php-format
-#| msgid ""
-#| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s plugin, "
-#| "please navigate to the plugin's %s, review the settings and save before "
-#| "proceeding."
-msgid ""
-"To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
-"plugin, please navigate to the plugin's %3$s, review the settings and save "
-"before proceeding."
-msgstr ""
-"Para garantizar la compatibilidad del plugin %sOrder Tip for WooCommerce%s, "
-"por favor, navega a la %s del plugin, revise la configuración y guarde antes "
-"de continuar."
-
-#: admin/controllers/notices.class.php:42
-msgid "settings page"
-msgstr "página de ajustes"
-
-#: admin/controllers/reports.class.php:137
-#: admin/controllers/reports.class.php:140
+#: admin/controllers/reports.class.php:135
+#: admin/controllers/reports.class.php:138
 msgid "Order Tips"
 msgstr "Propinas Pedidos"
 
-#: admin/controllers/reports.class.php:198
+#: admin/controllers/reports.class.php:196
 msgid "There are no orders with tips in the database just yet"
 msgstr "Todavía no hay pedidos con propinas en la base de datos"
 
-#: admin/controllers/reports.class.php:265
-#: admin/controllers/reports.class.php:308
+#: admin/controllers/reports.class.php:278
+#: admin/controllers/reports.class.php:321
 msgid "There are no orders with tips based on your date range."
 msgstr "No hay pedidos con propinas para las fechas seleccionadas."
 
-#: admin/controllers/reports.class.php:404
-msgid "Failed to initialize the export requisites."
-msgstr "Error al inicializar los requisitos de exportación."
+#: admin/controllers/reports.class.php:412
+msgid "You do not have permission to perform this action."
+msgstr "No tienes permiso para realizar esta acción."
 
-#: admin/controllers/reports.class.php:417
-msgid "Failed to create the uploads directory. Please check the permissions."
+#: admin/controllers/reports.class.php:424
+msgid "No data to export. Please select a date range and try again."
 msgstr ""
-"No se ha podido crear la carpeta de uploads. Por favor, compruebe los "
-"permisos."
+"No hay datos que exportar. Selecciona un intervalo de fechas e inténtalo de "
+"nuevo."
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:549
+#: admin/controllers/reports.class.php:431
+#, fuzzy
+#| msgid "There are no orders with tips based on your date range."
+msgid "Too many records. Please narrow your date range."
+msgstr "No hay pedidos con propinas para las fechas seleccionadas."
+
+#: admin/controllers/reports.class.php:436
 #: admin/views/reports-orders-list.php:142
 msgid "Order ID"
 msgstr "ID Pedido"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:550
+#: admin/controllers/reports.class.php:436
 msgid "Tip name"
 msgstr "Nombre propina"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:551
+#: admin/controllers/reports.class.php:436
 msgid "Tip value"
 msgstr "Valor propina"
 
-#: admin/controllers/reports.class.php:429
-#: admin/controllers/reports.class.php:552
+#: admin/controllers/reports.class.php:436
 msgid "Order date"
 msgstr "Fecha Pedido"
-
-#: admin/controllers/reports.class.php:607
-#: admin/views/reports-orders-list.php:190
-msgid "Total"
-msgstr "Total"
-
-#: admin/controllers/reports.class.php:608
-msgid "Currency"
-msgstr "Moneda"
 
 #: admin/controllers/settings.class.php:35
 msgid "Order Tip"
@@ -357,11 +331,11 @@ msgstr ""
 
 #: admin/controllers/settings.class.php:288
 msgid "Default tip"
-msgstr ""
+msgstr "Propina predeterminada"
 
 #: admin/controllers/settings.class.php:294
 msgid "Use default tip"
-msgstr ""
+msgstr "Usar propina predeterminada"
 
 #: admin/controllers/settings.class.php:301
 msgid ""
@@ -369,10 +343,13 @@ msgid ""
 "automatically be added when an item is added to the cart. The user will have "
 "the option to change the tip or remove it."
 msgstr ""
+"Activa o desactiva el uso de la propina predeterminada. Esto significa que "
+"la propina se añadirá automáticamente cuando se añada un artículo al "
+"carrito. El usuario tendrá la opción de modificar la propina o eliminarla."
 
 #: admin/controllers/settings.class.php:305
 msgid "Default tip type"
-msgstr ""
+msgstr "Tipo de propina predeterminada"
 
 #: admin/controllers/settings.class.php:312
 #, fuzzy
@@ -388,7 +365,7 @@ msgstr "Valor propina"
 
 #: admin/controllers/settings.class.php:318
 msgid "The value of the default tip"
-msgstr ""
+msgstr "El valor de la propina predeterminada"
 
 #: admin/controllers/settings.class.php:336
 #, fuzzy
@@ -720,9 +697,64 @@ msgstr "Valor"
 msgid "Date/Time"
 msgstr "Fecha/Hora"
 
-#: frontend/views/tip-form.php:85
+#: admin/views/reports-orders-list.php:190
+msgid "Total"
+msgstr "Total"
+
+#: frontend/controllers/config.class.php:49
+#, php-format
+msgid "Wait %1$s %2$s before changing the tip..."
+msgstr "Espera %1$s %2$s antes de cambiar la propina..."
+
+#: frontend/controllers/config.class.php:51
+msgid "second"
+msgstr "segundo"
+
+#: frontend/controllers/config.class.php:53
+msgid "seconds"
+msgstr "segundos"
+
+#: frontend/controllers/main.class.php:262
+msgid "Too many requests. Please wait a moment."
+msgstr "Demasiadas solicitudes. Por favor, espera un momento."
+
+#: frontend/views/tip-form.php:59 frontend/views/tip-form.php:88
+#, php-format
+msgid "Add %s tip"
+msgstr "Añade una propina de %s"
+
+#: frontend/views/tip-form.php:140
 msgid "Recurring tip"
 msgstr "Propina recurrente"
+
+#, fuzzy, php-format
+#~| msgid ""
+#~| "To ensure full compatibility of the %sOrder Tip for WooCommerce%s "
+#~| "plugin, please navigate to the plugin's %s, review the settings and save "
+#~| "before proceeding."
+#~ msgid ""
+#~ "To ensure full compatibility of the %1$sOrder Tip for WooCommerce%2$s "
+#~ "plugin, please navigate to the plugin's %3$s, review the settings and "
+#~ "save before proceeding."
+#~ msgstr ""
+#~ "Para garantizar la compatibilidad del plugin %sOrder Tip for "
+#~ "WooCommerce%s, por favor, navega a la %s del plugin, revise la "
+#~ "configuración y guarde antes de continuar."
+
+#~ msgid "settings page"
+#~ msgstr "página de ajustes"
+
+#~ msgid "Failed to initialize the export requisites."
+#~ msgstr "Error al inicializar los requisitos de exportación."
+
+#~ msgid ""
+#~ "Failed to create the uploads directory. Please check the permissions."
+#~ msgstr ""
+#~ "No se ha podido crear la carpeta de uploads. Por favor, compruebe los "
+#~ "permisos."
+
+#~ msgid "Currency"
+#~ msgstr "Moneda"
 
 #~ msgid "Updated to 1.1"
 #~ msgstr "Actualizado a 1.1"

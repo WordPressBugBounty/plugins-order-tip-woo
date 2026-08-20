@@ -48,15 +48,11 @@ class WOO_Order_Tip_Admin_Reports {
 
         $ajax = array(
             'display_orders_list_reports_ajax',
-            'export_tips_to_csv_ajax',
-            'delete_exported_csv_file_ajax'
+            'export_tips_to_csv_ajax'
         );
         foreach( $ajax as $ajax ) {
             add_action( 'wp_ajax_' . $ajax, array( $this, $ajax ) );
-            add_action( 'wp_ajax_nopriv_' . $ajax, array( $this, $ajax ) );
         }
-
-        add_action( 'admin_init', array($this, 'export_tips_to_csv') );
 
     }
 
@@ -74,7 +70,9 @@ class WOO_Order_Tip_Admin_Reports {
 
             $fees = array();
             // Even if using a $wpdb call, this is probably the most efficient way to retrieve the fee names. Looking forward to receiving other suggestions of how to achieve the same
-            $order_fees = $wpdb->get_results("SELECT DISTINCT order_item_name FROM {$wpdb->prefix}woocommerce_order_items WHERE order_item_type='fee'"); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
+            $order_fees = $wpdb->get_results(
+                $wpdb->prepare("SELECT DISTINCT order_item_name FROM {$wpdb->prefix}woocommerce_order_items WHERE order_item_type=%s", 'fee')
+            ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
 
             if( $order_fees ) {
                 foreach( $order_fees as $order_fee_name ) {
@@ -207,7 +205,7 @@ class WOO_Order_Tip_Admin_Reports {
     **/
     function display_orders_list_reports_ajax() {
 
-        check_ajax_referer( 'reps-' . wp_date('Y-m-d H'), 'security' );
+        check_ajax_referer( 'wootip_display_reports', 'security' );
 
         $after_date  = isset( $_POST['from'] ) ? sanitize_text_field( wp_unslash( $_POST['from'] ) ) : '';
         $before_date = isset( $_POST['to'] ) ? sanitize_text_field( wp_unslash( $_POST['to'] ) ) : '';
@@ -405,103 +403,52 @@ class WOO_Order_Tip_Admin_Reports {
     **/
     function export_tips_to_csv_ajax() {
 
-        check_ajax_referer( 'export-report-to-csv-' . wp_date('Y-m-d H'), 'security' );
-        
-        global $wp_filesystem;
+        check_ajax_referer( 'wootip_export_report', 'security' );
 
-        $errors = array();
-        
-        if ( ! function_exists( 'request_filesystem_credentials' ) ) {
-            require_once( ABSPATH . 'wp-admin/includes/file.php' );
-        }
-    
-        if ( ! WP_Filesystem() ) {
-            $errors[] = esc_html__( 'Failed to initialize the export requisites.', 'order-tip-woo' );
-        }
+        if( ! current_user_can( 'manage_woocommerce' ) ) {
 
-        $data         = isset( $_POST['data'] ) ? map_deep( wp_unslash( $_POST['data'] ), 'sanitize_text_field' ) : array();
-        
-        $uploads_dir  = wp_upload_dir();
-        $upload_path  = $uploads_dir['basedir'];
-        $upload_url   = $uploads_dir['baseurl'];
-        $upload_dir   = $upload_path . '/order-tip-woo';
-        
-        // Check if the directory exists, if not, create it
-        if ( ! $wp_filesystem->is_dir( $upload_dir ) ) {
-            if ( ! $wp_filesystem->mkdir( $upload_dir, FS_CHMOD_DIR ) ) {
-                $errors[] = esc_html__( 'Failed to create the uploads directory. Please check the permissions.', 'order-tip-woo' );
-                // if ( ! mkdir( $custom_directory, 0755, true ) ) {
-                //     $errors[] = esc_html__( 'Failed to create the uploads directory. Please check the permissions.', 'order-tip-woo' );
-                // }
-            }
-        }
-    
-        $filename  = 'order-tip-woo-export-' . time() . '.csv';
-        $file_path = $upload_dir . '/' . $filename;
-        $file_url  = $upload_url . '/order-tip-woo/' . $filename;
-    
-        // Create CSV content
-        $csv_data = __( 'Order ID', 'order-tip-woo' ) . ',' . __( 'Tip name', 'order-tip-woo' ) . ',' . __( 'Tip value', 'order-tip-woo' ) . ',' . __( 'Order date', 'order-tip-woo' ) . "\n";
-        if( $data ) {
-            foreach( $data as $order ) {
-                $order_id   = str_replace( ',', '', sanitize_text_field( esc_html( $order['orderId'] ) ) );
-                $fee_name   = str_replace( ',', '', sanitize_text_field( esc_html( $order['feeName'] ) ) );
-                $fee_value  = str_replace( ',', '', sanitize_text_field( esc_html( $order['feeValue'] ) ) );
-                $order_date = str_replace( ',', '', sanitize_text_field( esc_html( $order['orderDate'] ) ) );
-
-                $csv_data .= $order_id . ',' . $fee_name . ',' . $fee_value . ',' . $order_date . "\n";
-
-            }
-        }
-    
-        if ( ! $wp_filesystem->put_contents( $file_path, $csv_data, FS_CHMOD_FILE ) ) {
-            return false; 
-        }
-
-        wp_send_json( array(
-            'fileUrl'  => $file_url,
-            'filePath' => $file_path,
-            'errors'   => $errors
-        ) );
-
-        wp_die();
-
-    }
-
-    /**
-    * Perform export action via AJAX
-    * @since 1.5.0
-    **/
-    function delete_exported_csv_file_ajax() {
-
-        check_ajax_referer( 'delete-exported-file-' . wp_date('Y-m-d H'), 'security' );
-
-        global $wp_filesystem;
-
-        if( ! $wp_filesystem ) {
-            require_once ( ABSPATH . '/wp-admin/includes/file.php' );
-        }
-
-        $filesystem = $wp_filesystem ? $wp_filesystem : ( function_exists( 'WP_Filesystem' ) ? WP_Filesystem() : null );
-
-        if( ! $filesystem ) {
-            
             wp_send_json( array(
-                'status' => 'error'
+                'status' => 'error',
+                'message' => esc_html__( 'You do not have permission to perform this action.', 'order-tip-woo' )
             ) );
 
             wp_die();
 
         }
 
-        $file_path = isset( $_POST['filePath'] ) && ! empty( $_POST['filePath'] ) ? sanitize_text_field( wp_unslash( $_POST['filePath'] ) ) : '';
+        $data = isset( $_POST['data'] ) ? map_deep( wp_unslash( $_POST['data'] ), 'sanitize_text_field' ) : array();
 
-        if( $wp_filesystem->is_file( $file_path ) ) {
-            $wp_filesystem->delete( $file_path );
+        if ( ! $data ) {
+            wp_send_json(array(
+                'status' => 'error',
+                'message' => esc_html__( 'No data to export. Please select a date range and try again.', 'order-tip-woo' )
+            ));
+        }
+
+        if (count($data) > 100000) {
+            wp_send_json(array(
+                'status' => 'error',
+                'message' => esc_html__( 'Too many records. Please narrow your date range.', 'order-tip-woo' )
+            ));
+        }
+    
+        // Create CSV content
+        $csv_data = __( 'Order ID', 'order-tip-woo' ) . ',' . __( 'Tip name', 'order-tip-woo' ) . ',' . __( 'Tip value', 'order-tip-woo' ) . ',' . __( 'Order date', 'order-tip-woo' ) . "\n";
+        if( $data ) {
+            foreach( $data as $order ) {
+                $order_id   = $this->sanitize_csv_field( sanitize_text_field( $order['orderId'] ) );
+                $fee_name   = $this->sanitize_csv_field( sanitize_text_field( $order['feeName'] ) );
+                $fee_value  = $this->sanitize_csv_field( sanitize_text_field( $order['feeValue'] ) );
+                $order_date = $this->sanitize_csv_field( sanitize_text_field( $order['orderDate'] ) );
+
+                $csv_data .= $order_id . ',' . $fee_name . ',' . $fee_value . ',' . $order_date . "\n";
+
+            }
         }
 
         wp_send_json( array(
-            'status' => 'success'
+            'csvContent' => $csv_data,
+            'filename'   => 'order-tip-woo-export-' . wp_date('Y-m-d-His') . '.csv'
         ) );
 
         wp_die();
@@ -509,121 +456,25 @@ class WOO_Order_Tip_Admin_Reports {
     }
 
     /**
-    * Perform export action
-    * @since 1.1.0
-    **/
-    function export_tips_to_csv() {
+     * Sanitize CSV field to prevent formula injection
+     * @param string $field Field value
+     * @return string Sanitized field
+     */
+    private function sanitize_csv_field( $field ) {
 
-        $wootip_export_nonce = isset( $_POST['wootip_export_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['wootip_export_nonce'] ) ) : '';
-        $page      = isset( $_POST['page'] ) ? sanitize_text_field( wp_unslash( $_POST['page'] ) ) : '';
-        $tab       = isset( $_POST['tab'] ) ? sanitize_text_field( wp_unslash( $_POST['tab'] ) ) : '';
-        $a         = isset( $_POST['a'] ) ? sanitize_text_field( wp_unslash( $_POST['a'] ) ) : '';
-        $date_from = isset( $_POST['from'] ) ? sanitize_text_field( wp_unslash( $_POST['from'] ) ) : '';
-        $date_to   = isset( $_POST['to'] ) ? sanitize_text_field( wp_unslash( $_POST['to'] ) ) : '';
+        $field = (string) $field;
 
-        if(
-            $wootip_export_nonce
-            && wp_verify_nonce( $wootip_export_nonce, 'export-report-to-csv-' . wp_date('Y-m-d H') )
-            && is_user_logged_in() && current_user_can( 'manage_woocommerce' ) 
-            && $page && ( 'wc-reports' === $page || 'wc-settings' === $page )
-            && $tab && 'order_tip' === $tab
-            && $a && 'export' === $a
-            && $date_from
-            && $date_to
-        ) {
+        $field = str_replace( ',', '', $field );
 
-            $filename = 'order-tips-' . esc_html( $date_from ) . '-' . esc_html( $date_to ) . '.csv';
+        $field = str_replace( array( "\t", "\r", "\n" ), '', $field );
 
-            header('Content-Description: File Transfer');
-            header('Content-Type: application/csv');
-            header('Content-Disposition: attachment; filename="'.$filename.'"');
-            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-
-            $fp = fopen('php://output', 'w');
-
-            // @codingStandardsIgnoreStart
-    		$this->get_tips_csv_header( $fp, $date_from, $date_to );
-    		$this->create_tips_csv_lines( $fp, $date_from, $date_to, $_POST['fees'] );
-    		fclose($fp); // No need to use WP_Filesystem for files generated on the fly and not stored on the server
-            // @codingStandardsIgnoreEnd
-
-            die();
-
+        $dangerous_chars = array( '=', '+', '-', '@' );
+        if ( in_array( substr( $field, 0, 1 ), $dangerous_chars, true ) ) {
+            $field = "'" . $field;
         }
 
-    }
-
-    /**
-    * Get CSV file header
-    * @since 1.1.1
-    **/
-    function get_tips_csv_header( $fp, $date_from, $date_to ) {
-
+        return $field;
         
-		$columns = array(
-            __( 'Order ID', 'order-tip-woo' ),
-            __( 'Tip name', 'order-tip-woo' ),
-            __( 'Tip value', 'order-tip-woo' ),
-            __( 'Order date', 'order-tip-woo' )
-        );
-
-		$csvheader = $columns;
-		$csvheader = array_map('utf8_decode', $csvheader);
-
-		fputcsv($fp, $csvheader, ',');
-
-	}
-
-    /**
-    * Add CSV lines to the CSV file
-    * @since 1.1.1
-    **/
-    function create_tips_csv_lines( $fp, $date_from, $date_to, $fee_names = array() ) {
-
-        $fee_names = ! empty( $fee_names ) ? explode( ',', $fee_names ) : $this->fee_names;
-
-        $orders = wc_get_orders(array(
-            'orderby'      => 'date',
-            'order'        => 'DESC',
-            'type'         => 'shop_order',
-            'date_created' => $date_from . '...' . $date_to,
-            'limit'        => -1
-        ));
-
-        if( $orders ) {
-
-            $total = 0;
-
-            foreach( $orders as $order ) {
-
-                $fees  = $order->get_fees();
-                foreach( $fees as $fee ) {
-                    $fee_name = $fee->get_name();
-                    if( in_array( $fee_name, $fee_names ) ) {
-                        
-                        $fee_total = floatval( $fee->get_total() );
-
-                        $total += $fee_total;
-                        $created_date = new DateTime( $order->get_date_created() );
-                        
-                        fputcsv($fp, array(
-                            $order->get_id(),
-                            $fee_name,
-                            floatval( $fee->get_total() ),
-                            $created_date->format( $this->date_format )
-                        ), ',');
-
-                    }
-                }
-
-            }
-            
-            fputcsv( $fp, array(), ',' );
-            fputcsv( $fp, array( esc_html__( 'Total', 'order-tip-woo' ), $total ), ',' );
-            fputcsv( $fp, array( esc_html__( 'Currency', 'order-tip-woo' ), get_woocommerce_currency() ), ',' );
-
-        }
-
     }
 
 }

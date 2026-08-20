@@ -82,7 +82,7 @@ class WOO_Order_Tip_Service {
         $tip = $wc_session ? $wc_session->get('tip') : array();
         
         if( ! $tip && self::should_use_php_session() && isset( $_SESSION ) && isset( $_SESSION['tip'] ) && ! empty( $_SESSION['tip'] ) ) {
-            $tip = isset( $_SESSION ) && isset( $_SESSION['tip'] ) && ! empty( $_SESSION['tip'] ) ? unserialize( sanitize_text_field( wp_unslash( $_SESSION['tip'] ) ) ) : array();
+            $tip = isset( $_SESSION ) && isset( $_SESSION['tip'] ) && ! empty( $_SESSION['tip'] ) ? json_decode( sanitize_text_field( wp_unslash( $_SESSION['tip'] ) ), true ) : array();
         }
 
         if( $tip && $cart ) {
@@ -168,7 +168,7 @@ class WOO_Order_Tip_Service {
         }
 
         if( self::should_use_php_session() ) {
-            $session_tip = isset( $_SESSION ) && isset( $_SESSION['tip'] ) && ! empty( $_SESSION['tip'] ) ? unserialize( sanitize_text_field( wp_unslash( $_SESSION['tip'] ) ) ) : array();
+            $session_tip = isset( $_SESSION ) && isset( $_SESSION['tip'] ) && ! empty( $_SESSION['tip'] ) ? json_decode( sanitize_text_field( wp_unslash( $_SESSION['tip'] ) ), true ) : array();
 
             if( $session_tip ) {
                 unset( $_SESSION['tip'] );
