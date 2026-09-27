@@ -2,8 +2,8 @@
 Contributors: railmedia
 Tags: Woocommerce, Ecommerce, Order, Tip, Donation
 Requires at least: 5.3
-Stable tag: 1.6.0
-Tested up to: 7.0
+Stable tag: 1.6.1
+Tested up to: 7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,15 @@ CSS classes and IDs that allow customization:
 6. Backend Order displaying tip
 
 == Changelog ==
+
+= 1.6.1 =
+*Released 27 September 2026*
+
+* Added a new option to set a custom hook for the tip form position on the cart and checkout pages
+* Added a new option to add a description below the tip form title
+* The wc_order_tip_display_form filter now passes the settings array so you can show or hide the form based on your own conditions
+* Improved PHP session handling. The session write lock is now released early during AJAX requests to avoid blocking
+* Cleaned up unused session removal methods
 
 = 1.6.0 =
 *Released 17 August 2026*

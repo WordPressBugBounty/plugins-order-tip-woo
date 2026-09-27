@@ -36,6 +36,9 @@ class WOO_Order_Tip_Service {
             'wc_order_tip_custom_remove_label',
             'wc_order_tip_cash',
             'wc_order_tip_cash_label',
+            'wc_order_tip_description',
+            'wc_order_tip_custom_cart_hook',
+            'wc_order_tip_custom_checkout_hook',
             'wc_order_tip_enable_alert_remove_tip',
             'wc_order_tip_remove_new_order',
             'wc_order_tip_woo_subscriptions'
@@ -53,14 +56,14 @@ class WOO_Order_Tip_Service {
     **/
     public static function tip_form( $settings = array() ) {
 
-        $display_form = apply_filters( 'wc_order_tip_display_form', 1 );
+        $settings = $settings ? $settings : self::get_settings();
+
+        $display_form = apply_filters( 'wc_order_tip_display_form', 1, $settings );
 
         if( $display_form ) {
 
             wp_enqueue_style( 'woo-order-tip-css' );
             wp_enqueue_script( 'woo-order-tip-js' );
-
-            $settings = $settings ? $settings : self::get_settings();
 
             include( WOOOTIPPATH . 'frontend/views/tip-form.php' );
 
@@ -142,38 +145,6 @@ class WOO_Order_Tip_Service {
         }
 
         return $tip_data;
-
-    }
-
-    /**
-    * Remove tip when an order is placed, if this feature is enabled in the backend
-    **/
-    public static function remove_tip_on_order_placed( $order_id = 0 ) {
-
-        $remove_tip = get_option( 'wc_order_tip_remove_new_order' );
-
-        if( $remove_tip && ! is_admin() ) {
-
-            self::remove_tip();
-
-        }
-
-    }
-
-    public static function remove_tip() {
-
-        $wc_session = WC()->session;
-        if( $wc_session && $wc_session->get( 'tip' ) ) {
-            $wc_session->__unset( 'tip' );
-        }
-
-        if( self::should_use_php_session() ) {
-            $session_tip = isset( $_SESSION ) && isset( $_SESSION['tip'] ) && ! empty( $_SESSION['tip'] ) ? json_decode( sanitize_text_field( wp_unslash( $_SESSION['tip'] ) ), true ) : array();
-
-            if( $session_tip ) {
-                unset( $_SESSION['tip'] );
-            }
-        }
 
     }
 

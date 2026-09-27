@@ -52,6 +52,11 @@ class WOO_Order_Tip_Main {
                 case 'after_cart':
                     add_action( 'woocommerce_after_cart', array( $this, 'tip_form' ) );
                 break;
+                case 'custom':
+                    if( ! empty( $this->settings['wc_order_tip_custom_cart_hook'] ) ) {
+                        add_action( $this->settings['wc_order_tip_custom_cart_hook'], array( $this, 'tip_form' ) );
+                    }
+                break;
             }
 
         }
@@ -73,6 +78,11 @@ class WOO_Order_Tip_Main {
                 break;
                 case 'after_checkout_form':
                     add_action( 'woocommerce_after_checkout_form', array( $this, 'tip_form' ) );
+                break;
+                case 'custom':
+                    if( ! empty( $this->settings['wc_order_tip_custom_checkout_hook'] ) ) {
+                        add_action( $this->settings['wc_order_tip_custom_checkout_hook'], array( $this, 'tip_form' ) );
+                    }
                 break;
             }
 
@@ -145,7 +155,11 @@ class WOO_Order_Tip_Main {
         }
 
         if( WOO_Order_Tip_Service::should_use_php_session() ) {
+            if( ! session_id() ) {
+                session_start();
+            }
             $_SESSION['tip'] = wp_json_encode( $tip );
+            session_write_close();
         }
 
         $wc_session = WC()->session;
@@ -178,8 +192,12 @@ class WOO_Order_Tip_Main {
         $wc_session = WC()->session;
         $wc_session->__unset( 'tip' );
 
-        if( WOO_Order_Tip_Service::should_use_php_session() && isset( $_SESSION['tip'] ) ) {
+        if( WOO_Order_Tip_Service::should_use_php_session() && ! empty( $_SESSION['tip'] ) ) {
+            if( ! session_id() ) {
+                session_start();
+            }
             unset( $_SESSION['tip'] );
+            session_write_close();
         }
 
         echo 'success';
@@ -239,11 +257,17 @@ class WOO_Order_Tip_Main {
 
             if( WOO_Order_Tip_Service::should_use_php_session() ) {
             
+                if( ! session_id() && ! headers_sent() ) {
+                    session_start();
+                }
+
                 $session_tip = isset( $_SESSION ) && isset( $_SESSION['tip'] ) && ! empty( $_SESSION['tip'] ) ? json_decode( sanitize_text_field( wp_unslash( $_SESSION['tip'] ) ), true ) : array();
 
                 if( $session_tip ) {
                     unset( $_SESSION['tip'] );
                 }
+
+                session_write_close();
                 
             }
 

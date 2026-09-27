@@ -130,8 +130,18 @@ function woo_order_tip_admin_add_settings( $settings ) {
                                 'after_cart_table' => __( 'After the cart table', 'order-tip-woo' ),
                                 'before_totals'=> __( 'Before cart totals', 'order-tip-woo' ),
                                 'after_cart'   => __( 'After the cart', 'order-tip-woo' ),
+                                'custom'       => __( 'Custom', 'order-tip-woo' )
                             ),
                             'id'       => 'wc_order_tip_cart_position'
+                        ),
+
+                        array(
+                            'name'      => __( 'Custom cart position hook', 'order-tip-woo' ),
+                            'type'      => 'text',
+                            'id'        => 'wc_order_tip_custom_cart_hook',
+                            'desc'      => __( 'The WordPress action hook to display the tip form on the cart page. Used when "Custom position" is selected above.', 'order-tip-woo' ),
+                            'desc_tip'  => true,
+                            'placeholder' => 'woocommerce_after_cart_totals'
                         ),
 
                         array(
@@ -182,9 +192,19 @@ function woo_order_tip_admin_add_settings( $settings ) {
                                 'before_order_notes'    => __( 'Before the order notes field', 'order-tip-woo' ),
                                 'after_customer_details'=> __( 'After customer details', 'order-tip-woo' ),
                                 'before_order_review'   => __( 'Before the order review', 'order-tip-woo' ),
-                                'after_checkout_form'   => __( 'After the checkout form', 'order-tip-woo' )
+                                'after_checkout_form'   => __( 'After the checkout form', 'order-tip-woo' ),
+                                'custom'                => __( 'Custom', 'order-tip-woo' )
                             ),
                             'id'       => 'wc_order_tip_checkout_position'
+                        ),
+
+                        array(
+                            'name'      => __( 'Custom checkout position hook', 'order-tip-woo' ),
+                            'type'      => 'text',
+                            'id'        => 'wc_order_tip_custom_checkout_hook',
+                            'desc'      => __( 'The WordPress action hook to display the tip form on the checkout page. Used when "Custom position" is selected above.', 'order-tip-woo' ),
+                            'desc_tip'  => true,
+                            'placeholder' => 'woocommerce_after_checkout_form'
                         ),
 
                         array(
@@ -231,6 +251,14 @@ function woo_order_tip_admin_add_settings( $settings ) {
                             'desc_tip' => true,
                             'label'    => __( 'Enable', 'order-tip-woo' ),
                             'id'       => 'wc_order_tip_title'
+                        ),
+
+                        array(
+                            'name'     => __( 'Tip form description', 'order-tip-woo' ),
+                            'type'     => 'textarea',
+                            'desc'     => __( 'The tip form description will appear right below the tip form title', 'order-tip-woo' ),
+                            'desc_tip' => true,
+                            'id'       => 'wc_order_tip_description'
                         ),
 
                         array(

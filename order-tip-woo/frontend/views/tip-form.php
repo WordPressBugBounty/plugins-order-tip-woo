@@ -28,6 +28,9 @@ do_action( 'before_order_tip_form' );
     <?php if( isset( $settings['wc_order_tip_title'] ) && $settings['wc_order_tip_title'] ) { ?>
     <div class="order_tip_title"><?php echo wp_kses_post( apply_filters( 'wc_order_tip_title', $settings['wc_order_tip_title'] ) ); ?></div>
     <?php } ?>
+    <?php if( isset( $settings['wc_order_tip_description'] ) && $settings['wc_order_tip_description'] ) { ?>
+    <div class="order_tip_description"><?php echo wp_kses_post( apply_filters( 'wc_order_tip_description', $settings['wc_order_tip_description'] ) ); ?></div>
+    <?php } ?>
     <?php
         foreach( $tip_rates as $tip_rate ) {
             $tip_label_suffix = '';
