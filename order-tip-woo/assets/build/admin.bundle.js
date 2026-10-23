@@ -1,2 +1,0 @@
-(()=>{"use strict";jQuery;jQuery,jQuery((function(){jQuery("#wc_order_tip_updated_1_1").length&&jQuery("#wc_order_tip_updated_1_1").parent().parent().hide()}))})();
-//# sourceMappingURL=admin.bundle.js.map
